@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: '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', url: 'https://github.com/sriarunb/DevopsTestProjects.git'
+                git credentialsId: 'Git', url: 'https://github.com/sriarunb/DevopsTestProjects.git'
             }
         }
         stage('PHP Lint Test') {
