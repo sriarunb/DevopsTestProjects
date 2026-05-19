@@ -2,11 +2,19 @@ pipeline {
     agent any
 
     stages {
-        
         stage('PHP Lint Test') {
             steps {
                 echo 'Checking PHP Syntax Errors...'
-                                sh 'find . -name "*.php" -exec php -l {} \\;'
+                sh 'find . -name "*.php" -exec php -l {} \\;'
+            }
+        }
+
+        stage('Deploy to Apache') {
+            steps {
+                echo 'Deploying PHP application to Apache server...'
+                
+                sh 'cp -r * /var/www/html/'
+                echo 'Deployment successful!'
             }
         }
     }
